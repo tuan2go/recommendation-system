@@ -1,0 +1,32 @@
+This is an individual work completed by Guangdong Miao, z5094104.
+Topic 3.4: Recommender system using collaborative filtering
+
+I predict the movie ratings on the MovieLens Data Sets.
+You can download the datasets (ml-100k.zip) from https://grouplens.org/datasets/movielens/100k/
+After unzip this file, the 'u.data' is the target data set I use under the folder of ml-100k
+
+Due to the submission space limitation, datasets is available on https://www.dropbox.com/sh/o7u8922vra6m59g/AAB942kWzPsd1k5R5WEmDXPpa?dl=0
+You can download and treat 'u.data' as dataset.
+
+Dataset: 'u.data' contains four columns, I treat first column as user ids, second as movie ids and third column as ratings. The fourth column is ignored.
+
+'sys' is imported to exit system in case of inputting an invalid user id or movie id.
+'math' is imported to do mathematic calcualtion on pearson correlation coefficient
+'matplot' is import to draw the result
+'pandas' is imported to read and split dataset only
+
+
+Process:
+1. Process data. process_trainning_data(dataset) is implemented to gain the userlist
+2. input a valid user id to be predict(e.g. 1, 214), valid means the user id input exists in first column of dataset. user_id_check(user_predicted, userlist) is a checking function.
+3. input a valid movie id to be predict(e.g. 20, 141),  valid means the user id input exists in first column of dataset. movie_id_check(movie, userlist) is a checking function.
+4. get nearest neighbours by function of nearest_neighbours(user_predicted, userlist)
+5. predict ratings by function of predict(n_nearest_neighbour, movie, userlist)
+get the result of ratings
+6. split dataset as 80% train data and 20% test data
+7. use 200 sample tests to predict ratings by repeat 4-5 and get accuracy of this system by using accuracy(userlist, test, n, knn)
+8. change number of nearest neighbours(knn) to get a series of accuracy. k=[100, 200, 300, 400]
+9. plot the result with matplotlib.
+
+The program will output the ratings you predict, if input user id and movie id are valid(exists in dataset)
+and a figure show different accuracies influenced by different knn.
